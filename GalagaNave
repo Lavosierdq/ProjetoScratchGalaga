@@ -1,0 +1,19 @@
+// Adicionado evento para movimentar a nave na posicao X e pegar a posicao
+   Atual da Nave.
+
+// Variavel Cooernada_X_Nave_Posicao criada nas opcoes de variáveis
+// Quanto a tecla esquerda for pressionada
+    
+    When left arrow key pressed
+    change X by -7
+    if x position < -215 then
+        set x to -215
+    set Coodernada_X_Nave_posicao to x position
+
+// quanto a tecla direita for pressionada
+
+    When left arrow key pressed
+    change X by 7
+    if x position > 215 then
+        set x to 215
+    set Coodernada_X_Nave_posicao to x position
