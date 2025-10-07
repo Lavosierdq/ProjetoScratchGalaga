@@ -1,0 +1,27 @@
+// Criado movimento nave inimiga fase 1
+	when green flag clicked
+	repeat 2
+		show
+		go toi x: 160 y 147
+		glide 1 secs to x: 160 y: -77
+		glide 1 secs to x: 261 y: -77
+		hide
+	repeat 2
+		show
+		got to x -160 y: 147
+		glide 1 secs to x: -160 y: -77
+		glide 1 secs to x: -261 y: -77
+		hide
+	repeat 2
+		show
+		go to x 0 y: 147
+		set indice to indice + 1
+
+		if indice mod 2 = 0
+			glide 1 secs to x: -160 y: -77
+			glide 1 secs to x: -261 y: -77
+		else
+			glide 1 secs to x: 160 y: -77
+			glide 1 secs to x: 261 y: -77
+		hide
+
