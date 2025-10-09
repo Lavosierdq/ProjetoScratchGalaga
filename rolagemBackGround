@@ -1,0 +1,19 @@
+Ator fundo1
+
+    when flag clicked
+    go to back layer
+    go to x:0 y:0
+    forever
+        change y by -2
+        if y position < -345 then
+        go to x:0 y:346
+
+Ator fundo 2
+
+    when flag clicked
+    go to back layer
+    go to x:0 y:346
+    forever
+        change y by -2
+        if y position < -345 then
+        go to x:0 y:346
