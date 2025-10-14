@@ -2,18 +2,39 @@
    Atual da Nave.
 
 // Variavel Cooernada_X_Nave_Posicao criada nas opcoes de variáveis
-// Quanto a tecla esquerda for pressionada
-    
-    When left arrow key pressed
-    change X by -7
-    if x position < -215 then
-        set x to -215
-    set Coodernada_X_Nave_posicao to x position
+   /* Quanto a tecla esquerda for pressionada
+
+      When left arrow key pressed
+      change X by -7
+      if x position < -215 then
+      set x to -215
+      set Coodernada_X_Nave_posicao to x position
+   */
 
 // quanto a tecla direita for pressionada
 
-    When left arrow key pressed
-    change X by 7
-    if x position > 215 then
-        set x to 215
-    set Coodernada_X_Nave_posicao to x position
+   /* 
+      When left arrow key pressed
+      change X by 7
+      if x position > 215 then
+      set x to 215
+      set Coodernada_X_Nave_posicao to x position
+    */
+
+// Melhorando o código para movimento da nave
+	When flag clicked
+	go to x:0 y:-128
+	set XVel to 0
+	forever
+	if key rigth arrow pressed?
+		change XVel by 1
+	if x position > 215
+		set x t 215
+	if key left arrow pressed?
+		change XVel by -1
+	if x position < -215
+		set x to - 215
+	set XVel to XVel * 0.8
+	set Coodernada_X_Posicao to x position
+	change x by Xvel
+
