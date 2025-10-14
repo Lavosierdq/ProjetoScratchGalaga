@@ -1,16 +1,37 @@
 //quando a tecla space for acionada a nave irá soltar um tiro
-	when space key pressed
-	show
-	set x to Coordenada_x_Nave_Posicao
-	glide 1 secs to x:(x position) y:(87)
-	set x to Coordenada_X_Nave_Posicao
-	set y to (-87)
-	hide
+/*
+   when space key pressed
+   show
+   set x to Coordenada_x_Nave_Posicao
+   glide 1 secs to x:(x position) y:(87)
+   set x to Coordenada_X_Nave_Posicao
+   set y to (-87)
+   hide
+ */
+
 
 //Funcao do projetil seguir a nave
-	when space key pressed
-	set x to Coordenada_X_Nave_Posicao
-	glide 1 sec to x: x position y:87
-	set x to Coordenada_X_Nave_Posicao
-	set y to -87
+/*
+   when space key pressed
+   set x to Coordenada_X_Nave_Posicao
+   glide 1 sec to x: x position y:87
+   set x to Coordenada_X_Nave_Posicao
+   set y to -87
+ */
 
+// Funcao de soltar tiro melhoradas
+	when space key pressed
+	go to x: Coodernada_X_Nave_Posicao y:-87
+	glide 1 secs to x:Coodernada_X_Nave_Posicao y:87
+	go to x: Coodernada_X_Nave_Posicao y:-87
+
+// Funcao do projetio seguir a nave melhoradas
+	when flag clicked
+	go to  x: 0 y:-87
+	forever
+		if not XVel  = x position
+			change x by XVel
+		if x position > 215
+			set x to 215
+		if x position < -215
+			set x to -215
