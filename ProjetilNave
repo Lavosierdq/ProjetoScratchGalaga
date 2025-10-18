@@ -19,19 +19,46 @@
    set y to -87
  */
 
-// Funcao de soltar tiro melhoradas
+//Funcao de soltar tiro melhoradas
+	/*
 	when space key pressed
 	go to x: Coodernada_X_Nave_Posicao y:-87
 	glide 1 secs to x:Coodernada_X_Nave_Posicao y:87
 	go to x: Coodernada_X_Nave_Posicao y:-87
+	*/
+
 
 // Funcao do projetio seguir a nave melhoradas
 	when flag clicked
 	go to  x: 0 y:-87
 	forever
-		if not XVel  = x position
+		if not XVel  = x position then
 			change x by XVel
-		if x position > 215
+		if x position > 215 then
 			set x to 215
-		if x position < -215
+		if x position < -215 then
 			set x to -215
+
+//O tiro depois de disparado seguir o movimento da nave
+	when space key pressed
+	set contatoBooleanTiroNave to 0
+	go to x: Coodernada_x_Nave_posicao y: -87
+	set Coordenada_Y_Tiro to 0
+	forever
+		change Coordenada_Y_Tiro by 1
+		set Coordenada_Y_Tiro to Coordenada_Y_Tiro * 0.85
+		change y by Coordenada_Y_Tiro
+		if touching BossGalaga? then   // Criado o hitBox
+			set contatoBooleanTiroNave to 1
+			hide
+			wait 0.2 seconds
+			go to x: Coordenada_X_Nave_Posicao y: -87
+			show
+			set contatoBooleanTiroNave to 0
+			stop this script
+		if y position > 100 then
+			go to x: Coodernada_X_Nave_Posicao y:-87
+			stop this script
+
+	
+
