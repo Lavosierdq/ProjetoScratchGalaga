@@ -1,3 +1,28 @@
+// refatorando o código para melhor entendimento	
+
+	define VelocidadeNave_X VNx // aqui é uma funcao
+	change XVel by VNX
+	set Xvel to (XVel * 0.91)
+	
+
+	when flag clicked
+	go to x: 0 y:-128
+	set XVel to 0
+	forever
+		if key right arrow pressed? or key d pressed?
+			Velocidade_X 1
+		if x position > 215
+			set x to 215
+		if key left arrow pressed? or key a pressed?
+			Velocidade_X -1
+		if x position < 215
+			set x to -215
+		change x by Xvel
+		set Coodernada_X_Nave_Posicao to x position
+
+
+
+
 // Adicionado evento para movimentar a nave na posicao X e pegar a posicao
    Atual da Nave.
 
@@ -22,19 +47,21 @@
     */
 
 // Melhorando o código para movimento da nave
-	When flag clicked
-	go to x:0 y:-128
-	set XVel to 0
-	forever
-	if key rigth arrow pressed?
-		change XVel by 1
-	if x position > 215
-		set x t 215
-	if key left arrow pressed?
-		change XVel by -1
-	if x position < -215
-		set x to - 215
-	set XVel to XVel * 0.8
-	set Coodernada_X_Posicao to x position
-	change x by Xvel
+	/*
+	   When flag clicked
+	   go to x:0 y:-128
+	   set XVel to 0
+	   forever
+	   if key rigth arrow pressed?
+	   change XVel by 1
+	   if x position > 215
+	   set x t 215
+	   if key left arrow pressed?
+	   change XVel by -1
+	   if x position < -215
+	   set x to - 215
+	   set XVel to XVel * 0.8
+	   set Coodernada_X_Posicao to x position
+	   change x by Xvel
+	*/
 

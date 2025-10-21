@@ -1,27 +1,80 @@
-// Criado movimento nave inimiga fase 1
-	when green flag clicked
-	repeat 2
-		show
-		go toi x: 160 y 147
-		glide 1 secs to x: 160 y: -77
-		glide 1 secs to x: 261 y: -77
-		hide
-	repeat 2
-		show
-		got to x -160 y: 147
-		glide 1 secs to x: -160 y: -77
-		glide 1 secs to x: -261 y: -77
-		hide
-	repeat 2
-		show
-		go to x 0 y: 147
-		set indice to indice + 1
+// Refatorando o código do movimento da nave par melhor entendimento
+	define TrajetoBoss1
+		set BossXVel to  10 * 0.5
+		set BossYVel to -10 * 0.5
+		go to x: 160 y: 147
 
-		if indice mod 2 = 0
-			glide 1 secs to x: -160 y: -77
-			glide 1 secs to x: -261 y: -77
-		else
-			glide 1 secs to x: 160 y: -77
-			glide 1 secs to x: 261 y: -77
+	define TrajetoBoss2
+		set BossXVel to -10 * 0.5
+		set BossYVel to -10 * 0.5
+		go to x: -160 y: 147
+
+	define TrajetoBoss3
+		set BossXVel to  10 * 0.5
+		set BossYVel to -10 * 0.5
+		go to x: 0 y: 147
+
+
+	define TrajetoBoss4
+		set BossXVel to -10 * 0.5
+		set BoxxYVel to -10 * 0.5
+		go to x:0 y: 147
+
+	define Movimento 1
+		show
+		repeat 44
+			if not contatoBoolean =  1
+				change y by BossYVel
+			else
+				repeat 24
+					turn right 15 degress
+			hide
+			wait 0.01 seconds
+		repeat 11
+			if not contatoBoolean = 1
+				change x by BossXVel
+			else
+				repeat 24
+					turn 15 rigth degress
+				wait 0.01
+				hide	
+
+	
+	define Movimento2
+		show
+		repeat 44
+			if not contatoBoolean  = 1
+				change x by BossXVel
+				change y by BossYVel
+			else
+				repeat 24
+					turn right 15 degrees
+				wait 0.01
+				hide
+				wait 0.01
+		repeat 11
+			if not contatoBoolean = 1
+				change x by BossXVel
+			else
+				repeat 24
+					turn right 15 degrees
+				wait 0.01 seconds
+				hide
+				wait 0.01
+
+	when flag clicked
+		go to x: 160 y: 147
+		repeat 2
+			TrajetoBoss1
+			Movimento1
+		repeat 2
+			TrajetoBoss2
+			Movimento1
+		repeat 2
+			TrajetoBoss3
+			Movimento2
+		repeat 2
+			TrajetoBoss4
+			Movimento2
 		hide
 

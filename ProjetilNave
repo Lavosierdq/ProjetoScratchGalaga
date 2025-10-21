@@ -1,3 +1,43 @@
+// Refatorando o código para melhorar o entendimento e a leitura
+
+	define TiroVelocidade_Y    //aqui é uma funcao
+		change Coordenada_Y_tiro by 1
+		set Coordenada_Y_tiro to (Coordenada_Y_Tiro * 0.85)
+
+	define ContatoComNaveInimiga True
+		set contatoBoolean t0o 1
+		hide
+		wait 0.2 seconds
+		go to x: Coordenada_X_Nave_Posicao y:-87
+		show
+		set contatoBoolean to 0
+
+	when flag clicked
+		go to x:0 y:-87
+		forever
+			if not XVel = xposition then
+				change x by XVel
+			if x position > 215
+				set x to 215
+		
+			if x position < -215
+				set x to -215
+
+	when space key pressed
+		go to x: Coordenada_X_Nave_Posicao y:-87
+		set Coordenada_Y_Tiro to 0
+		forever
+			TiroVelocidade_Y
+			change y by Coordenada_Y_Tiro
+		if touching BossGalaga? then
+			ContatoComNaveInimiga
+			stop this script
+		if y position > 100
+			go to x:Coordenada_X_Nave_Posicao y: -877
+			stop this script
+		
+
+
 //quando a tecla space for acionada a nave irá soltar um tiro
 /*
    when space key pressed
@@ -21,25 +61,28 @@
 
 //Funcao de soltar tiro melhoradas
 	/*
-	when space key pressed
-	go to x: Coodernada_X_Nave_Posicao y:-87
-	glide 1 secs to x:Coodernada_X_Nave_Posicao y:87
-	go to x: Coodernada_X_Nave_Posicao y:-87
+	   when space key pressed
+	   go to x: Coodernada_X_Nave_Posicao y:-87
+	   glide 1 secs to x:Coodernada_X_Nave_Posicao y:87
+	   go to x: Coodernada_X_Nave_Posicao y:-87
 	*/
 
 
 // Funcao do projetio seguir a nave melhoradas
-	when flag clicked
-	go to  x: 0 y:-87
-	forever
+	/*
+	   when flag clicked
+	   go to  x: 0 y:-87
+	   forever
 		if not XVel  = x position then
 			change x by XVel
 		if x position > 215 then
 			set x to 215
 		if x position < -215 then
 			set x to -215
+	*/
 
 //O tiro depois de disparado seguir o movimento da nave
+/*
 	when space key pressed
 	set contatoBooleanTiroNave to 0
 	go to x: Coodernada_x_Nave_posicao y: -87
@@ -59,6 +102,8 @@
 		if y position > 100 then
 			go to x: Coodernada_X_Nave_Posicao y:-87
 			stop this script
+*/
+		
 
 	
 
