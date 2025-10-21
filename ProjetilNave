@@ -11,6 +11,11 @@
 		go to x: Coordenada_X_Nave_Posicao y:-87
 		show
 		set contatoBoolean to 0
+	define Pontuacao true
+		set Score to Score + 100
+		if Score mod 500 = 0
+			repeat Lifes  < 5
+				set Lifes  to Lifes + 1
 
 	when flag clicked
 		go to x:0 y:-87
@@ -30,7 +35,8 @@
 			TiroVelocidade_Y
 			change y by Coordenada_Y_Tiro
 		if touching BossGalaga? then
-			ContatoComNaveInimiga
+			ContatoComNaveInimiga // chamada da funcao
+			Pontuacao // chamada da funcao
 			stop this script
 		if y position > 100
 			go to x:Coordenada_X_Nave_Posicao y: -877
@@ -103,7 +109,3 @@
 			go to x: Coodernada_X_Nave_Posicao y:-87
 			stop this script
 */
-		
-
-	
-
